@@ -1,0 +1,92 @@
+<div style="height: 100%; background-color: red" *ngIf="selectedProduct">
+  <div class="lg:flex lg:flex-row md:flex md:flex-row">
+    <div class="w-full rounded overflow-hidden my-4">
+      <img
+        class="w-full"
+        style="max-width: 100%"
+        [src]="'assets/img/pompe/' + selectedProduct.imgFileName"
+        alt="DR24"
+      />
+    </div>
+
+    <div class="w-full">
+      <p>{{ selectedProduct.name }}</p>
+      <p>{{ selectedProduct.details.max_shipment }}</p>
+      <p>{{ selectedProduct.details.max_pressure }}</p>
+      <p>{{ selectedProduct.details.noise }}</p>
+      <p>{{ selectedProduct.details.dimension }}</p>
+      <p>{{ selectedProduct.details.weight }}</p>
+      <p>{{ selectedProduct.details.viscosity }}</p>
+      <p>{{ selectedProduct.details.canistra }}</p>
+      <p>{{ selectedProduct.details.aplicare }}</p>
+      <p>{{ selectedProduct.details.necesar_aer }}</p>
+      <p>{{ selectedProduct.details.mixare }}</p>
+      <p>{{ selectedProduct.details.motor }}</p>
+      <p>{{ selectedProduct.details.latime_lucru }}</p>
+      <p>{{ selectedProduct.details.capacity }}</p>
+      <p>{{ selectedProduct.details.air }}</p>
+      <p>{{ selectedProduct.name }}</p>
+
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div class="flex items-center justify-between pb-4">
+          <div class="relative">
+            <div
+              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+            >
+              <svg
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <table
+          class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
+        >
+          <thead
+            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+          >
+            <tr>
+              <th scope="col" class="px-6 py-3">Nume Produs</th>
+              <th scope="col" class="px-6 py-3">Livrare Maxima</th>
+              <th scope="col" class="px-6 py-3">Categorie</th>
+              <th scope="col" class="px-6 py-3">Price</th>
+              <th scope="col" class="px-6 py-3">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+            >
+              <th
+                scope="row"
+                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              >
+                Microsoft Surface Pro
+              </th>
+              <td class="px-6 py-4">White</td>
+              <td class="px-6 py-4">Laptop PC</td>
+              <td class="px-6 py-4">$1999</td>
+              <td class="px-6 py-4">
+                <a
+                  href="#"
+                  class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  >Edit</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

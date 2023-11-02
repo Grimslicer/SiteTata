@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PompeComponent } from './components/pompe/pompe.component';
+import { PumpDetailsComponent } from './components/pompe/pump-details/pump-details.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PompeComponent } from './components/pompe/pompe.component';
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    PompeComponent
+    PompeComponent,
+    PumpDetailsComponent
   ],
   imports: [
     BrowserModule,

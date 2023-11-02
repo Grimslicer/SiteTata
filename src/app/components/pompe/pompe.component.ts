@@ -1,42 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Product {
-  id: number;
-  details: {
-    max_shipment?: string;
-    max_pressure?: string;
-    noise?: string;
-    dimension?: string;
-    weight?: string;
-    viscosity?: string;
-    canistra?: string;
-    aplicare?: string;
-    necesar_aer?: string;
-    mixare?: string;
-    motor?: string;
-    latime_lucru?: string;
-    capacity?: string;
-  };
-  name: string;
-  imgFileName: string; // Image file name
-}
-
-interface PompeBi {
-  id: number;
-  details: {
-    raport_amestec?: string;
-    max_shipment?: string;
-    max_pressure?: string;
-    air?: string;
-
-    dimension?: string;
-    weight?: string;
-
-    aplicare?: string;
-  };
-  name: string;
-  imgFileName: string; // Image file name
-}
+import { NavigationExtras, Router } from '@angular/router';
+import { IProductClass, Product } from 'src/app/models/products';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-pompe',
@@ -44,7 +9,7 @@ interface PompeBi {
   styleUrls: ['./pompe.component.css'],
 })
 export class PompeComponent implements OnInit {
-  products: Product[] = [
+  products: IProductClass[] = [
     {
       id: 1,
       name: 'DR 24',
@@ -111,7 +76,7 @@ export class PompeComponent implements OnInit {
     },
   ];
 
-  pompe_bi: PompeBi[] = [
+  pompe_bi: Product[] = [
     {
       id: 5,
       name: 'HD50-2K',
@@ -321,11 +286,22 @@ export class PompeComponent implements OnInit {
     },
   ];
 
+  selectedProduct!: Product;
+
+  constructor(private router: Router, private productServ: ProductService) {}
+
   ngOnInit() {
     console.log('The products are', this.products);
   }
 
-  selectProduct(product: Object) {
+  selectProduct(product: Product) {
     console.log('Product is', product);
+    this.selectedProduct = product;
+    console.log('Selected product is', this.selectedProduct);
+    this.productServ.setSelectedProduct(this.selectedProduct);
+    // Navigate to the 'pompe/:id' route with the selectedProduct object as a query parameter
+    this.router.navigate(['pompe', this.selectedProduct.id]);
   }
+
+  navigateToChildRoute(id: string) {}
 }
